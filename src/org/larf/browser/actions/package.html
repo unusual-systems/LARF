@@ -1,0 +1,17 @@
+ <p>
+ These actions are added to buttons, menus, etc so that we have a common way of
+ carrying out these tasks.
+ <p>
+ when actionPerformed is called, the action needs to find out which file has
+ been selected.  This could be done by using selection listeners, but I thought
+ registering huge numbers of actions as event listeners seems a bit silly; instead
+ you need to pass in a class that implements a getSelectedFile() method (<i>that</i>
+ could be a selection listener).  This might be the StoreTreeView, but in the
+ case of the browser for example the file may be selected in the DirectoryListView too.
+ <p>
+ It then needs to notify any interested components that a file has changed. You can
+  register these components as a FileChangedListener with the action, but this
+ can be a pain as not all components know about all other components that create
+ instances of the actions.  So components can instead register with the FileChangedHub
+ singleton, which will always be informed of all FileChangedEvents.
+

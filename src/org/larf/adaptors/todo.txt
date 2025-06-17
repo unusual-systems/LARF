@@ -1,0 +1,2 @@
+CIFS - see eg http://www.microsoft.com/mind/1196/cifs.asp
+WebDAV?
